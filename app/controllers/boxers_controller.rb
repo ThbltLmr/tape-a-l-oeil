@@ -1,0 +1,2 @@
+class BoxersController < ApplicationController
+end
