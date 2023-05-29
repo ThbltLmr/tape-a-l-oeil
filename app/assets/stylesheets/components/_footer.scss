@@ -24,3 +24,22 @@
 .footer .fa-heart {
   color: #D23333;
 }
+
+.list {
+  list-style-type: none;
+  display: flex;
+  gap: 16px;
+  padding: 0;
+}
+
+.list li {
+  color: black;
+  opacity: 0.15;
+  text-decoration: none;
+  font-size: 24px;
+  padding: 0px 10px;
+}
+
+.list li:hover {
+  opacity: 1;
+}
