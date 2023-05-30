@@ -45,6 +45,7 @@ User.all.each do |user|
     address: "#{Faker::Address.street_address}, Paris",
     start_date: begin_date,
     end_date: begin_date + 1.days
+    status: ["pending", "validated", "refused"].sample
   )
   booking.user = user
   booking.boxer = Boxer.all.sample
