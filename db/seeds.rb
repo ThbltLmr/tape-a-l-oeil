@@ -37,7 +37,7 @@ User.all.each do |user|
   end
 end
 
-# Seed bookings (3 per user)
+# Seed bookings (1 per user)
 
 User.all.each do |user|
   begin_date = Faker::Date.between(from: Date.today, to: 1.year.from_now)
@@ -45,7 +45,7 @@ User.all.each do |user|
     address: "#{Faker::Address.street_address}, Paris",
     start_date: begin_date,
     end_date: begin_date + 1.days,
-    status: ["pending", "validated", "refused"].sample
+    status: ["pending", "validated", "refused", "done"].sample
   )
   booking.user = user
   booking.boxer = Boxer.all.sample
