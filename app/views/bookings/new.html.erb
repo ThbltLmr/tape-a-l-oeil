@@ -1,0 +1,6 @@
+<%= simple_form_for([@boxer, @booking], url: boxer_bookings_path) do |f| %>
+  <%= f.input :address %>
+  <%= f.input :start_date, as: :date %>
+  <%= f.input :end_date, as: :date %>
+  <%= f.submit %>
+<% end %>
