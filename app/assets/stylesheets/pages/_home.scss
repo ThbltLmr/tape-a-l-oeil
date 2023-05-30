@@ -16,8 +16,11 @@ body {
   border-radius: 6px;
   margin: 1rem;
   box-shadow: 1px 1px 5px white;
-  object-fit: center;
+  object-fit: cover;
   overflow: hidden;
+  img {
+    width: 100%;
+  }
 }
 
 .card-row {

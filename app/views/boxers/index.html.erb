@@ -1,19 +1,23 @@
-<h1>test Index</h1>
-<%= link_to 'New Boxer', new_boxer_path %>
-<div class="row">
-<% @boxers.each do |boxer| %>
-    <div class="col-3 p-3">
-    <%= link_to boxer_path(boxer) do %>
-      <div class="card-product">
-        <%= cl_image_tag boxer.photo.key, height: 100, width: 100, crop: :fill %>
-        <div class="card-product-infos">
-          <h2><%= "#{boxer.first_name} #{boxer.last_name}" %></h2>
-          <p><%= "Age: #{boxer.age}" %></p>
-          <p><%= "Height: #{boxer.height}" %></p>
-          <p><%= "Weight: #{boxer.weight}" %></p>
+<div class="container w-80">
+  <div class="d-flex justify-content-between align-items-center">
+    <h1 class="mx-1 my-3 text-secondary">Browse available boxers near you</h1>
+    <%= button_to 'New Boxer', new_boxer_path, class: "btn btn-primary m-1" %>
+  </div>
+  <div class="row">
+  <% @boxers.each do |boxer| %>
+      <div class="col-3 p-3">
+      <%= link_to boxer_path(boxer), class: "text-decoration-none text-secondary" do %>
+        <div class="card-product">
+          <%= cl_image_tag boxer.photo.key, height: 100, width: 100, crop: :fill %>
+          <div class="card-product-infos">
+            <h2><%= "#{boxer.first_name} #{boxer.last_name}" %></h2>
+            <p><%= "Age: #{boxer.age} years old" %></p>
+            <p><%= "Height: #{boxer.height} cm" %></p>
+            <p><%= "Weight: #{boxer.weight} kgs" %></p>
+          </div>
         </div>
+      <% end %>
       </div>
-    <% end %>
-    </div>
-<% end %>
+  <% end %>
+  </div>
 </div>
