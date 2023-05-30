@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :bookings, dependent: :destroy
+  has_one :boxer
   validates :age, comparison: { greater_than: 17 }, numericality: { only_integer: true }, presence: true
   validates :first_name, presence: true
   validates :last_name, presence: true
