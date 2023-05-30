@@ -26,7 +26,7 @@ User.all.each do |user|
       age: user.age,
       weight: rand(50..120),
       height: rand(160..200),
-      address: Faker::Address.full_address,
+      address: "#{Faker::Address.street_address}, Paris",
       price_per_day: rand(100..150),
       gender: ["male", "female", "other"].sample,
       availability_radius: rand(1..50),
@@ -42,7 +42,7 @@ end
 User.all.each do |user|
   begin_date = Faker::Date.between(from: Date.today, to: 1.year.from_now)
   booking = Booking.new(
-    address: Faker::Address.full_address,
+    address: "#{Faker::Address.street_address}, Paris",,
     start_date: begin_date,
     end_date: begin_date + 1.days
   )
