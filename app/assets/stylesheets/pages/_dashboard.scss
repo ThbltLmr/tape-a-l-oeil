@@ -1,0 +1,21 @@
+.dashboard {
+  padding: 1rem;
+  margin: 1rem;
+  justify-content: space-between;
+}
+
+.bookings {
+  width: 70%;
+}
+
+.card {
+  box-shadow: 2px 2px 5px grey;
+  padding: 2rem;
+}
+
+.stats {
+  padding: 1rem;
+  height: 60vh;
+  position: sticky;
+  top: 0;
+}
