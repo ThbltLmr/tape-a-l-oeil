@@ -1,7 +1,19 @@
 <h1>test Index</h1>
 <%= link_to 'New Boxer', new_boxer_path %>
+<div class="row">
 <% @boxers.each do |boxer| %>
-    <%= link_to "#{boxer.first_name} #{boxer.last_name}", boxer_path(boxer)%>
-    <%# <%= link_to 'Edit', edit_boxer_path(boxer) %>
-    <%# <%= link_to 'Delete', boxer_path(boxer), method: :delete, data: { confirm: 'Are you sure?' } %>
+    <div class="col-3 p-3">
+    <%= link_to boxer_path(boxer) do %>
+      <div class="card-product">
+        <%= cl_image_tag boxer.photo.key, height: 100, width: 100, crop: :fill %>
+        <div class="card-product-infos">
+          <h2><%= "#{boxer.first_name} #{boxer.last_name}" %></h2>
+          <p><%= "Age: #{boxer.age}" %></p>
+          <p><%= "Height: #{boxer.height}" %></p>
+          <p><%= "Weight: #{boxer.weight}" %></p>
+        </div>
+      </div>
+    <% end %>
+    </div>
 <% end %>
+</div>

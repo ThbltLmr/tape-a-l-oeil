@@ -11,12 +11,12 @@ body {
   // margin: 1rem;
 }
 
-.card {
+.card-home {
   height: 30vh;
   border-radius: 6px;
   margin: 1rem;
   box-shadow: 1px 1px 5px white;
-  object-fit: cover;
+  object-fit: center;
   overflow: hidden;
 }
 

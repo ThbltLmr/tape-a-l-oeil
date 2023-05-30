@@ -12,6 +12,7 @@ require 'faker'
     age: rand(18..80),
     email: Faker::Internet.email(name: "#{name} #{family_name}", domain: 'gmail.com')
   )
+  user.photo.attach(io: File.open('app/assets/images/logo.png'), filename: 'logo.png')
   user.save!
   puts "created #{user.first_name} #{user.last_name}"
 end
@@ -32,6 +33,7 @@ User.all.each do |user|
       availability_radius: rand(1..50),
       user_id: user.id
     )
+    boxer.photo.attach(io: File.open('app/assets/images/MMA_1.png'), filename: 'MMA_1.png')
     boxer.save!
     puts "created boxer: #{boxer.first_name} #{boxer.last_name}"
   end
@@ -40,16 +42,18 @@ end
 # Seed bookings (1 per user)
 
 User.all.each do |user|
-  begin_date = Faker::Date.between(from: Date.today, to: 1.year.from_now)
-  booking = Booking.new(
-    address: "#{Faker::Address.street_address}, Paris",
-    start_date: begin_date,
-    end_date: begin_date + 1.days,
-    status: ["pending", "validated", "refused", "done"].sample
-  )
-  booking.user = user
-  booking.boxer = Boxer.all.sample
-  booking.price = booking.boxer.price_per_day
-  booking.save!
-  puts "created booking: #{booking.boxer.first_name} #{booking.boxer.last_name} will beat up #{booking.user.first_name} #{booking.user.last_name}"
+  5.times do
+    begin_date = Faker::Date.between(from: Date.today, to: 1.year.from_now)
+    booking = Booking.new(
+      address: "#{Faker::Address.street_address}, Paris",
+      start_date: begin_date,
+      end_date: begin_date + 1.days,
+      status: ["pending", "validated", "refused", "done"].sample
+    )
+    booking.user = user
+    booking.boxer = Boxer.all.sample
+    booking.price = booking.boxer.price_per_day
+    booking.save!
+    puts "created booking: #{booking.boxer.first_name} #{booking.boxer.last_name} will beat up #{booking.user.first_name} #{booking.user.last_name}"
+  end
 end
