@@ -48,7 +48,7 @@ User.all.each do |user|
   )
   booking.user = user
   booking.boxer = Boxer.all.sample
-  booking.price = booking.boxer.price_per_day * 8
+  booking.price = booking.boxer.price_per_day
   booking.save!
   puts "created booking: #{booking.boxer.first_name} #{booking.boxer.last_name} will beat up #{booking.user.first_name} #{booking.user.last_name}"
 end
