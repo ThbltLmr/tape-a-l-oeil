@@ -6,10 +6,9 @@
 
 .card {
   height: 30vh;
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
   border-radius: 6px;
   margin: 1rem;
+  box-shadow: 1px 1px 5px white;
   object-fit: cover;
   overflow: hidden;
 }
@@ -28,10 +27,15 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
+  color: white;
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight: 500;
 }
 
 .search-wrapper {
   padding: 0 2rem;
+  background: linear-gradient(-45deg, #000000, #941414, #d36810, #fffeff);
+	animation: gradient 10s ease infinite;
 }
 
 .top-left {
@@ -44,4 +48,28 @@
 
 .bottom {
   align-self: center;
+}
+
+@-webkit-keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }

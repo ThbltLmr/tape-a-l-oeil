@@ -42,7 +42,7 @@ end
 User.all.each do |user|
   begin_date = Faker::Date.between(from: Date.today, to: 1.year.from_now)
   booking = Booking.new(
-    address: "#{Faker::Address.street_address}, Paris",,
+    address: "#{Faker::Address.street_address}, Paris",
     start_date: begin_date,
     end_date: begin_date + 1.days
   )
