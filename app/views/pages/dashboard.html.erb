@@ -1,0 +1,22 @@
+<p>-Profil- -Booking- -Gig-</p>
+<div class="dashboard d-flex">
+  <div class=" card stats">
+    <p>Wreckings to come: <%= @status_validated %> </p>
+    <p>Awaiting response: <%= @status_pending %> </p>
+    <p>Times you got wrecked: <%= @status_done %> </p>
+  </div>
+  <div class="bookings">
+    <% @bookings.each do |booking| %>
+      <div class="card">
+        <div class="name d-flex">
+          <%= booking.boxer.first_name %>
+          <%= booking.boxer.last_name %>
+        </div>
+        <%= booking.start_date %>
+        <%= booking.end_date %>
+        <p><%= booking.price%>€</p>
+        <%= booking.status%>
+      </div>
+    <% end %>
+  </div>
+</div>
