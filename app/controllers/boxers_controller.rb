@@ -1,4 +1,5 @@
 class BoxersController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
   def index
     @boxers = Boxer.all
   end
@@ -11,7 +12,7 @@ class BoxersController < ApplicationController
     @boxer = Boxer.new(boxer_params)
     @boxer.user = current_user
     if @boxer.save
-      redirect_to boxer_path(@boxer), notice: 'Boxer was successfully created.'
+      redirect_to boxer_path(@boxer), alert: "Boxer created!"
     else
       render :new, status: :unprocessable_entity
     end
