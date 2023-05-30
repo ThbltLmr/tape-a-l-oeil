@@ -1,9 +1,7 @@
 <h1>test Index</h1>
 <%= link_to 'New Boxer', new_boxer_path %>
 <% @boxers.each do |boxer| %>
-  <p>
     <%= link_to "#{boxer.first_name} #{boxer.last_name}", boxer_path(boxer)%>
     <%# <%= link_to 'Edit', edit_boxer_path(boxer) %>
-    <%# <%= link_to 'Delete', boxer_path(boxer), method: :delete, data: { confirm: 'Are you sure?' } %> 
-  </p>
+    <%# <%= link_to 'Delete', boxer_path(boxer), method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
