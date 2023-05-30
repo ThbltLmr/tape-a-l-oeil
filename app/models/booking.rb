@@ -4,3 +4,4 @@ class Booking < ApplicationRecord
 
   validates :status, inclusion: { in: ["pending", "validated", "refused", "done"] }
 end
+
