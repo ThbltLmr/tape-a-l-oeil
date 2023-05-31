@@ -1,22 +1,48 @@
-<p>-Profil- -Booking- -Gig-</p>
-<div class="dashboard d-flex">
-  <div class=" card stats">
-    <p>Wreckings to come: <%= @status_validated %> </p>
-    <p>Awaiting response: <%= @status_pending %> </p>
-    <p>Times you got wrecked: <%= @status_done %> </p>
-  </div>
-  <div class="bookings">
-    <% @bookings.each do |booking| %>
-      <div class="card">
-        <div class="name d-flex">
-          <%= booking.boxer.first_name %>
-          <%= booking.boxer.last_name %>
+<%# <p>-Profil- -Booking- -Gig-</p> %>
+<div class="dashboard">
+  <ul class="list-inline tabs-underlined">
+    <li>
+      <a href="#" class="tab-underlined active">Profil</a>
+    </li>
+    <li>
+      <a href="#" class="tab-underlined">Bookings </a>
+    </li>
+    <li>
+      <a href="#" class="tab-underlined">Gigs</a>
+    </li>
+  </ul>
+  <div class="d-flex gap-4 mt-5">
+    <div class="card-dashboard stats">
+      <div class="d-flex justify-content-between border-bottom">
+        <%= cl_image_tag(current_user.photo.key,
+          width: 120, height: 120, crop: :fill, class: "rounded-circle mb-5") %>
+        <div class="d-flex flex-column ms-5 mt-4">
+          <div class="d-flex name">
+            <%= current_user.first_name.capitalize %>
+            <%= current_user.last_name.capitalize %>
+          </div>
+          <p><%= current_user.age %> years old</p>
         </div>
-        <%= booking.start_date %>
-        <%= booking.end_date %>
-        <p><%= booking.price%>€</p>
-        <%= booking.status%>
       </div>
-    <% end %>
+      <div class="mt-5">
+        <p>Wreckings to come: <%= @status_validated %> </p>
+        <p>Awaiting response: <%= @status_pending %> </p>
+        <p>Times you got wrecked: <%= @status_done %> </p>
+      </div>
+    </div>
+    <div class="bookings">
+      <% @bookings.each do |booking| %>
+        <div class="card-dashboard">
+          <div class="name d-flex">
+            <%= booking.boxer.first_name %>
+            <%= booking.boxer.last_name %>
+          </div>
+          <%= booking.start_date %>
+          <%= booking.address %>
+          <p><%= booking.price%>€</p>
+          <%= booking.status%>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
