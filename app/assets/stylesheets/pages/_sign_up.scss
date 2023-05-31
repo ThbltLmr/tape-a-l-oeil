@@ -1,15 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Poppins:wght@400;500;600&display=swap');
-
-
-.form-container{
-  margin: 0;
-  padding: 40px 10px 10px 10px;
+.form-container-bd {
+  display: flex;
+  align-items: center; /* This will center the form vertically */
+  justify-content: center; /* This will center the form horizontally */
+  flex-direction: column; /* This will stack the form items vertically */
+  height: 100vh; /* 100% of the viewport height */
+  width: 100vw; /* 100% of the viewport width */
   box-sizing: border-box;
+  padding: 40px 10px 10px 10px;
   font-family: "Poppins", sans-serif;
   background: linear-gradient(120deg, #ea7f05,#010fa7);
-  height: 100vh;
-
+  margin: 0;
 }
+
+.outer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+
 .form-control {
   width: 100%;
 }
@@ -51,8 +62,30 @@ input[type="submit"]:hover{
 }
 
 
-
 .custom-container {
+  width: 50%;
   display: flex;
+  flex-direction: column;
   gap: 16px;
+}
+
+h2 {
+  font-family: 'Oswald', sans-serif;
+  text-align: center;
+  margin-top: 0;
+}
+
+#new_user {
+  height: 740px;
+  width: 400px;
+  background-color: rgba(255,255,255,0.13);
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255,255,255,0.1);
+  box-shadow: 0 0 40px rgba(8,7,16,0.6);
+  padding: 50px 35px;
 }
