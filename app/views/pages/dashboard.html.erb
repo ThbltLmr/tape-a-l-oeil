@@ -1,11 +1,11 @@
 <%# <p>-Profil- -Booking- -Gig-</p> %>
 <div class="dashboard">
-  <ul class="list-inline tabs-underlined">
+  <ul class="list-inline tabs-underlined ">
     <li>
-      <a href="#" class="tab-underlined active">Profile</a>
+      <a href="#" class="tab-underlined">Profile</a>
     </li>
     <li>
-      <a href="#" class="tab-underlined">Bookings</a>
+      <a href="#" class="tab-underlined active">Bookings</a>
     </li>
     <li>
       <a href="#" class="tab-underlined">Gigs</a>
@@ -32,15 +32,19 @@
     </div>
     <div class="bookings">
       <% @bookings.each do |booking| %>
-        <div class="card-dashboard">
-          <div class="name d-flex">
-            <%= booking.boxer.first_name %>
-            <%= booking.boxer.last_name %>
+        <div class="card-trip mb-3">
+          <%= image_tag "map.png", class: "image" %>
+          <div class="card-trip-infos">
+            <div>
+              <h2>  <%= booking.boxer.first_name %><%= booking.boxer.last_name %> </h2>
+              <p>
+                <%= booking.start_date %>
+                <%= booking.address %>
+                <%= booking.status%>
+              </p>
+            </div>
+            <h2 class="card-trip-pricing"><%= booking.price%>€</h2>
           </div>
-          <%= booking.start_date %>
-          <%= booking.address %>
-          <p><%= booking.price%>€</p>
-          <%= booking.status%>
         </div>
       <% end %>
     </div>
