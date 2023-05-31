@@ -13,7 +13,7 @@
   left: 130px;
 }
 
-.cards {
+.cards-model {
   display: flex;
   justify-content: space-around;
   width: 80%;
@@ -31,7 +31,7 @@
 }
 
 
-.card {
+.card-model {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 300px;
   margin: auto;
@@ -42,10 +42,6 @@
   border-radius: 20px;
 }
 
-.card img {
-  width: 100%;
-  height: auto;
-}
 
 
 .button-21 {
