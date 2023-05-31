@@ -1,5 +1,6 @@
 <%# <p>-Profil- -Booking- -Gig-</p> %>
 <div class="dashboard">
+
   <ul class="list-inline tabs-underlined ">
     <li>
       <a href="#" class="tab-underlined">Profile</a>
@@ -11,16 +12,14 @@
       <a href="#" class="tab-underlined">Gigs</a>
     </li>
   </ul>
+
   <div class="d-flex gap-4 mt-5">
     <div class="card-dashboard stats">
       <div class="d-flex justify-content-between border-bottom">
         <%= cl_image_tag(current_user.photo.key,
           width: 120, height: 120, crop: :fill, class: "rounded-circle mb-5") %>
-        <div class="d-flex flex-column ms-5 mt-4">
-          <div class="d-flex name">
-            <%= current_user.first_name.capitalize %>
-            <%= current_user.last_name.capitalize %>
-          </div>
+        <div class="ms-5 mt-4">
+          <h3> <%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %> </h3>
           <p><%= current_user.age %> years old</p>
         </div>
       </div>
@@ -30,23 +29,32 @@
         <p>Times you got wrecked: <%= @status_done %> </p>
       </div>
     </div>
+
     <div class="bookings">
       <% @bookings.each do |booking| %>
-        <div class="card-trip mb-3">
+        <div class="card-booking mb-3">
           <%= image_tag "map.png", class: "image" %>
-          <div class="card-trip-infos">
+          <div class="card-booking-infos">
             <div>
-              <h2>  <%= booking.boxer.first_name %><%= booking.boxer.last_name %> </h2>
-              <p>
-                <%= booking.start_date %>
-                <%= booking.address %>
-                <%= booking.status%>
-              </p>
+              <h2><%= booking.boxer.first_name %><%= booking.boxer.last_name %></h2>
+              <p><%= booking.start_date %></p>
+              <p><%= booking.address %></p>
             </div>
-            <h2 class="card-trip-pricing"><%= booking.price%>€</h2>
+            <h2><%= booking.price%>€</h2>
+            <% if booking.status == "pending" %>
+              <div class="status pending"><%= booking.status%></div>
+            <% elsif booking.status == "validated" %>
+              <div class="status validated"><%= booking.status%></div>
+            <% elsif booking.status == "refused" %>
+              <div class="status refused"><%= booking.status%></div>
+            <% else %>
+              <div class="status done"><%= booking.status%></div>
+            <% end %>
+            <%= image_tag "MMA_1.png", class: "card-booking-user" %>
           </div>
         </div>
       <% end %>
     </div>
   </div>
+
 </div>
