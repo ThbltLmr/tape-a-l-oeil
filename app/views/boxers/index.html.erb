@@ -1,7 +1,9 @@
 <div class="container w-80">
   <div class="d-flex justify-content-between align-items-center">
     <h1 class="mx-1 my-3 text-secondary">Browse available boxers near you</h1>
-    <%= button_to 'New Boxer', new_boxer_path, class: "btn btn-primary m-1" %>
+    <%= link_to new_boxer_path do %>
+      <button class="btn btn-primary my-3">New boxer</button>
+    <% end %>
   </div>
   <div class="row">
   <% @boxers.each do |boxer| %>
