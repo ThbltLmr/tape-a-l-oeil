@@ -31,8 +31,8 @@
           <% end %>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Profile", "#", class: "dropdown-item" %>
-              <%= link_to "Dashboard", "#", class: "dropdown-item" %>
+              <%= link_to "Profile", "/dashboard", class: "dropdown-item" %>
+              <%= link_to "Dashboard", "/dashboard", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
