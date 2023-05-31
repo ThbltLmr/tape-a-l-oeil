@@ -1,49 +1,28 @@
-<h1><%= @boxer.first_name %> <%= @boxer.last_name %></h1>
+<div class="container mb-5" style="width: 50%;">
+  <div class="text-center my-3">
+    <%= cl_image_tag(@boxer.photo.key, height: 200, width: 200, class: "img-thumb rounded-circle") %>
+    <h1 class="pt-3"><%= @boxer.first_name %> <%= @boxer.last_name %></h1>
+    <h3 class="p-1 mb-3"><%= @boxer.age %> year-old <%= @boxer.gender %></h3>
+  </div>
+  <div class="d-flex justify-content-evenly">
+    <div class="boxer-infos mx-3" style="width: 40%;">
+      <h5 class="border-bottom">Physical info</h5>
+      <p><strong>Weight:</strong> <%= @boxer.weight %> kgs</p>
+      <p><strong>Height:</strong> <%= @boxer.height %> cm</p>
+    </div>
+    <div class="boxer-infos mx-3" style="width: 40%;">
+      <h5 class="border-bottom">Booking info</h5>
+      <p><strong>Address:</strong> <%= @boxer.address %></p>
+      <p><strong>Price Per Day:</strong> <%= @boxer.price_per_day %> €</p>
+    </div>
+  </div>
+  <div class="text-end">
+  <%= link_to new_boxer_booking_path(@boxer) do %>
+    <button class="btn btn-success text-white mx-5 my-3">New booking</button>
+  <% end %>
+  </div>
+</div>
 
-<p>
-  <strong>First Name:</strong>
-  <%= @boxer.first_name %>
-</p>
-
-<p>
-  <strong>Last Name:</strong>
-  <%= @boxer.last_name %>
-</p>
-
-<p>
-  <strong>Age:</strong>
-  <%= @boxer.age %>
-</p>
-
-<p>
-  <strong>Weight:</strong>
-  <%= @boxer.weight %>
-</p>
-
-<p>
-  <strong>Height:</strong>
-  <%= @boxer.height %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @boxer.address %>
-</p>
-
-<p>
-  <strong>Price Per Day:</strong>
-  <%= @boxer.price_per_day %>
-</p>
-
-<p>
-  <strong>Gender:</strong>
-  <%= @boxer.gender %>
-</p>
-
-<p>
-  <strong>Availability Radius:</strong>
-  <%= @boxer.availability_radius %>
-</p>
-
-<%= link_to 'Back', boxers_path %>
-<%= link_to 'New Booking', new_boxer_booking_path(@boxer) %>
+<%= link_to boxers_path do %>
+    <button class="btn btn-secondary text-white mx-5 my-3">Back</button>
+  <% end %>
