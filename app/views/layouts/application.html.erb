@@ -11,9 +11,15 @@
   </head>
 
   <body>
+  <div id="layout-container">
     <%= render "shared/navbar" unless @no_navbar%>
+    <div id="layout-content">
     <%= yield %>
+    </div>
     <%= render "shared/flashes" unless @no_navbar %>
+    <div id="layout-footer">
     <%= render "shared/footer" unless @no_navbar %>
+    </div>
+  </div>
   </body>
 </html>
