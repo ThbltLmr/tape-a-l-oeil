@@ -1,7 +1,25 @@
-<h1>test Index</h1>
-<%= link_to 'New Boxer', new_boxer_path %>
-<% @boxers.each do |boxer| %>
-    <%= link_to "#{boxer.first_name} #{boxer.last_name}", boxer_path(boxer)%>
-    <%# <%= link_to 'Edit', edit_boxer_path(boxer) %>
-    <%# <%= link_to 'Delete', boxer_path(boxer), method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>
+<div class="container w-80">
+  <div class="d-flex justify-content-between align-items-center">
+    <h1 class="mx-1 my-3 text-secondary">Browse available boxers near you</h1>
+    <%= link_to new_boxer_path do %>
+      <button class="btn btn-primary my-3">New boxer</button>
+    <% end %>
+  </div>
+  <div class="row">
+  <% @boxers.each do |boxer| %>
+      <div class="col-3 p-3">
+      <%= link_to boxer_path(boxer), class: "text-decoration-none text-secondary" do %>
+        <div class="card-product">
+          <%= cl_image_tag boxer.photo.key, height: 100, width: 100, crop: :fill %>
+          <div class="card-product-infos">
+            <h2><%= "#{boxer.first_name} #{boxer.last_name}" %></h2>
+            <p><%= "Age: #{boxer.age} years old" %></p>
+            <p><%= "Height: #{boxer.height} cm" %></p>
+            <p><%= "Weight: #{boxer.weight} kgs" %></p>
+          </div>
+        </div>
+      <% end %>
+      </div>
+  <% end %>
+  </div>
+</div>
