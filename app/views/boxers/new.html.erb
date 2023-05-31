@@ -1,7 +1,7 @@
 <h2 class="form-title">Become Our Next Challenger 💪</h2>
 
 <div class="form-cont-boxers">
-  <%= simple_form_for @boxer do |f| %>
+  <%= simple_form_for @boxer, html: { id: "my_form_id" } do |f| %>
     <%= f.input :first_name, label: 'First Name' %>
     <%= f.input :last_name, label: 'Last Name' %>
     <%= f.input :age, label: 'Age' %>
