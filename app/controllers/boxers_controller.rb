@@ -25,6 +25,6 @@ class BoxersController < ApplicationController
   private
 
   def boxer_params
-    params.require(:boxer).permit(:first_name, :last_name, :age, :weight, :height, :address, :price_per_day, :gender, :availability_radius)
+    params.require(:boxer).permit(:first_name, :last_name, :age, :weight, :height, :address, :price_per_day, :gender, :availability_radius, :photo)
   end
 end
