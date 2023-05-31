@@ -2,6 +2,10 @@ require 'faker'
 
 # Seed users
 
+User.destroy_all
+Boxer.destroy_all
+Booking.destroy_all
+
 60.times do
   name = Faker::Name.first_name
   family_name = Faker::Name.last_name
