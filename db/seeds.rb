@@ -31,7 +31,7 @@ User.all.each do |user|
       age: user.age,
       weight: rand(50..120),
       height: rand(160..200),
-      address: "#{Faker::Address.street_address}, Paris",
+      address: Faker::Travel::Airport.name(size: 'small', region: 'united_states'),
       price_per_day: rand(100..150),
       gender: ["male", "female", "other"].sample,
       availability_radius: rand(1..50),

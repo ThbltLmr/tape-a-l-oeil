@@ -2,7 +2,11 @@ class BoxersController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
   def index
     @boxers = Boxer.all
-    @boxer = Boxer.first
+    @boxer = Boxer.new
+    respond_to do |format|
+      format.html  # index.html.erb
+      format.json  { render json: @boxers }
+    end
   end
 
   def new
