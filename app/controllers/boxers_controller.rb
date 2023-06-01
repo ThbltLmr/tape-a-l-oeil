@@ -1,7 +1,11 @@
 class BoxersController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
+
   def index
     @boxers = Boxer.all
+    if params[:address].present?
+      @boxers = @boxers.select { |boxer| boxer.distance_from(params[:address]) < boxer.availability_radius }
+    end
   end
 
   def new
@@ -25,6 +29,6 @@ class BoxersController < ApplicationController
   private
 
   def boxer_params
-    params.require(:boxer).permit(:first_name, :last_name, :age, :weight, :height, :address, :price_per_day, :gender, :availability_radius)
+    params.require(:boxer).permit(:first_name, :last_name, :age, :weight, :height, :address, :price_per_day, :gender, :availability_radius, :photo)
   end
 end

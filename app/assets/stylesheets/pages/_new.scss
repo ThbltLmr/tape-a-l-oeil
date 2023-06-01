@@ -1,0 +1,19 @@
+.form-box-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // height: 100vh;
+}
+
+.form-cont-boxers {
+  width: 40%;
+  margin: 0 auto;
+}
+
+.form-title {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  font-family: 'Ubuntu', sans-serif;
+}

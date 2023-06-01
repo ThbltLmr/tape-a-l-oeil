@@ -31,7 +31,7 @@ User.all.each do |user|
       age: user.age,
       weight: rand(50..120),
       height: rand(160..200),
-      address: "#{Faker::Address.street_address}, Paris",
+      address: Faker::Travel::Airport.name(size: 'small', region: 'united_states'),
       price_per_day: rand(100..150),
       gender: ["male", "female", "other"].sample,
       availability_radius: rand(1..50),
@@ -49,7 +49,7 @@ User.all.each do |user|
   5.times do
     begin_date = Faker::Date.between(from: Date.today, to: 1.year.from_now)
     booking = Booking.new(
-      address: "#{Faker::Address.street_address}, Paris",
+      address: Faker::Travel::Airport.name(size: 'small', region: 'united_states'),
       start_date: begin_date,
       end_date: begin_date + 1.days,
       status: ["pending", "validated", "refused", "done"].sample
@@ -61,3 +61,28 @@ User.all.each do |user|
     puts "created booking: #{booking.boxer.first_name} #{booking.boxer.last_name} will beat up #{booking.user.first_name} #{booking.user.last_name}"
   end
 end
+
+seed_user = User.new(
+  password: "fightclub",
+  first_name: "Edward",
+  last_name: "Norton",
+  age: rand(18..80),
+  email: "edward.norton@gmail.com"
+)
+seed_user.photo.attach(io: File.open('app/assets/images/norton.jpg'), filename: 'norton.jpg')
+seed_user.save!
+
+seed_boxer = Boxer.new(
+  first_name: "Brad",
+  last_name: "Pitt",
+  age: 26,
+  weight: 75,
+  height: 185,
+  address: "68, avenue Parmentier, Paris",
+  price_per_day: 200_000,
+  gender: "male",
+  availability_radius: rand(1..50),
+  user_id: User.first.id
+)
+seed_boxer.photo.attach(io: File.open('app/assets/images/brad.jpeg'), filename: 'brad.jpeg')
+seed_boxer.save!
