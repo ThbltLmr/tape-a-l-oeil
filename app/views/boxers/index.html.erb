@@ -6,15 +6,15 @@
     <% end %>
   </div>
 
-  <%= simple_form_for(@boxer) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :address,
-      input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
-      wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
+  <%= form_with do |f| %>
+  <div class="form-inputs" data-controller="address-autocomplete" data-address-autocomplete-api-key-value="<%= ENV["MAPBOX_API_KEY"] %>">
+    <%= f.text_field :address,
+                      data: {address_autocomplete_target: "address"},
+                      class: "d-none"
     %>
   </div>
   <div class="form-actions">
-    <%= f.button :submit, "Search boxers" %>
+    <%= f.submit "Search boxers" %>
   </div>
   <% end %>
 

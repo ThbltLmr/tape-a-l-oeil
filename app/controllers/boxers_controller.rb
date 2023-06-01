@@ -1,11 +1,10 @@
 class BoxersController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
   def index
-    @boxers = Boxer.all
-    @boxer = Boxer.new
-    respond_to do |format|
-      format.html  # index.html.erb
-      format.json  { render json: @boxers }
+    if params[:address].present?
+      @boxers = Boxer.first
+    else
+      @boxers = Boxer.all
     end
   end
 
