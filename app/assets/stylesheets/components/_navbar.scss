@@ -6,6 +6,8 @@
   left: 0;
   right: 0;
   z-index: 10;
+  background-image: cover;
+  background-position: center;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -14,4 +16,10 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+#site-name {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
