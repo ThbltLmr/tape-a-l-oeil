@@ -18,6 +18,16 @@
   </div>
   <% end %>
 
+  <%= form_with url: Boxers_path, method: :get, class: "d-flex" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a Boxer"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+
+
   <div class="row">
   <% @boxers.each_slice(3).with_index do |boxers_row, index| %>
     <% boxers_row.each do |boxer| %>
