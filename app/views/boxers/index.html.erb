@@ -6,7 +6,7 @@
     <% end %>
   </div>
 
-  <%= form_with url: boxers_path, method: :get do |f| %>
+  <%= form_with url: boxers_path, method: :get, class: "d-flex align-items-center" do |f| %>
   <div class="form-inputs" data-controller="address-autocomplete" data-address-autocomplete-api-key-value="<%= ENV["MAPBOX_API_KEY"] %>">
     <%= text_field_tag :address,
     params[:address],
@@ -15,7 +15,7 @@
   %>
   </div>
   <div class="form-actions">
-    <%= f.submit "Search boxers" %>
+    <%= f.submit "Search boxers", class: "filter-submit" %>
   </div>
   <% end %>
 
