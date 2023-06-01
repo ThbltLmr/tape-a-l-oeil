@@ -42,6 +42,7 @@
               <p><%= booking.start_date %></p>
               <p><%= booking.address %></p>
             </div>
+            <%= link_to "Cancel", booking_path(booking), data: { turbo_method: :delete }, class: "btn btn-outline-danger" %>
             <h2><%= booking.price%>€</h2>
             <% if booking.status == "pending" %>
               <div class="status pending"><%= booking.status%></div>
@@ -59,6 +60,9 @@
     </div>
   </div>
 
+  <% if current_user.boxer.nil? %>
+    <%= link_to "Click here to register as a boxer", new_boxer_path %>
+  <% else %>
   <div id="Gigs" class="d-flex gap-4 mt-5 d-none" data-switch-target="gigs allDNone">
     <div class="card-dashboard stats">
       <div class="d-flex justify-content-between border-bottom">
@@ -120,5 +124,5 @@
       <% end %>
     </div>
   </div>
-
+  <% end %>
 </div>
