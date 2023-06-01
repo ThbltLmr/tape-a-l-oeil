@@ -1,10 +1,10 @@
 class BoxersController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
+
   def index
+    @boxers = Boxer.all
     if params[:address].present?
-      @boxers = Boxer.first
-    else
-      @boxers = Boxer.all
+      @boxers = @boxers.select { |boxer| boxer.distance_from(params[:address]) < boxer.availability_radius }
     end
   end
 
