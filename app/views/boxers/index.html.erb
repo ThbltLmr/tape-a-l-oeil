@@ -5,6 +5,19 @@
       <button class="btn btn-primary my-3">New boxer</button>
     <% end %>
   </div>
+
+  <%= form_with do |f| %>
+  <div class="form-inputs" data-controller="address-autocomplete" data-address-autocomplete-api-key-value="<%= ENV["MAPBOX_API_KEY"] %>">
+    <%= f.text_field :address,
+                      data: {address_autocomplete_target: "address"},
+                      class: "d-none"
+    %>
+  </div>
+  <div class="form-actions">
+    <%= f.submit "Search boxers" %>
+  </div>
+  <% end %>
+
   <div class="row">
   <% @boxers.each_slice(3).with_index do |boxers_row, index| %>
     <% boxers_row.each do |boxer| %>
