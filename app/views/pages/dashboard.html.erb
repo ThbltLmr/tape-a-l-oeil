@@ -16,8 +16,12 @@
   <div class="d-flex gap-4 mt-5">
     <div class="card-dashboard stats">
       <div class="d-flex justify-content-between border-bottom">
-        <%= cl_image_tag(current_user.photo.key,
-          width: 120, height: 120, crop: :fill, class: "rounded-circle mb-5") %>
+        <% if current_user.photo.attached? %>
+          <%= cl_image_tag(current_user.photo.key,
+            width: 120, height: 120, crop: :fill, class: "rounded-circle mb-5") %>
+        <% else %>
+          <%= image_tag('MMA_1.png', size: 120, class: "rounded-circle mb-5") %>
+        <% end %>
         <div class="ms-5 mt-4">
           <h3> <%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %> </h3>
           <p><%= current_user.age %> years old</p>
