@@ -19,22 +19,12 @@
   </div>
   <% end %>
 
-  <%= form_with url: boxers_path, method: :get, class: "d-flex" do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Find a Boxer"
-    %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
-  <% end %>
-
-
   <div class="row">
   <% @boxers.each_slice(3).with_index do |boxers_row, index| %>
     <% boxers_row.each do |boxer| %>
       <div class="col-4 p-3">
       <%= link_to boxer_path(boxer), class: "text-decoration-none text-secondary" do %>
-        <div class="card-product thicker-card">
+        <div class="card-product thicker-card rounded">
           <%= cl_image_tag boxer.photo.key, height: 100, width: 100, crop: :fill %>
           <div class="card-product-infos">
             <h2><%= "#{boxer.first_name} #{boxer.last_name}" %></h2>
