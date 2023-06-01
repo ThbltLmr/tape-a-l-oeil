@@ -6,6 +6,7 @@ class BoxersController < ApplicationController
     if params[:address].present?
       @boxers = @boxers.select { |boxer| boxer.distance_from(params[:address]) < boxer.availability_radius }
     end
+    session[:address] = params[:address]
   end
 
   def new
