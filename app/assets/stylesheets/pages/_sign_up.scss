@@ -1,3 +1,4 @@
+
 .form-container-bd {
   height: 100vh;
   box-sizing: border-box;
@@ -5,6 +6,35 @@
   font-family: "Poppins", sans-serif;
   background: linear-gradient(120deg, #ea7f05,#010fa7);
   margin: 0;
+  position: relative;
+}
+.child-avatar1{
+  position : absolute;
+  top: 6%;
+  left: 31%;
+}
+.child-avatar2{
+  position : absolute;
+  top: 85%;
+  left: 32%;
+}
+
+.child-avatar3{
+  position : absolute;
+  top: 50%;
+  left: 58%;
+}
+
+.child-avatar4{
+  position : absolute;
+  top: 10%;
+  left: 80%;
+}
+
+.child-avatar5{
+  position : absolute;
+  top: 40%;
+  left: 5%;
 }
 
 .custom-controls {
@@ -78,4 +108,11 @@ h2 {
   box-shadow: 0 0 40px rgba(8,7,16,0.6);
   padding: 5px;
   margin-top: 1rem;
+
+  z-index: 100;
+}
+
+.custom-blur {
+  backdrop-filter: blur(10px);
+
 }
