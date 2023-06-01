@@ -1,10 +1,10 @@
 <div class="outer-container">
   <div class="form-container-bd">
-    <h2>Sign up</h2>
     <div class="custom-container">
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
-        <div class="w-50 mx-auto">
+        <div class="w-50 mx-auto" class="form-signup">
+          <h2>Sign up</h2>
           <%= f.input :first_name,
                       required: true,
                       autofocus: true,
