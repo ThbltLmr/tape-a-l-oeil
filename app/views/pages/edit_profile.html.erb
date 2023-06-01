@@ -1,0 +1,79 @@
+<body class="bd">
+  <div class="profile-container" data-controller="profile">
+    <h2>Modifier mon profil 📝</h2>
+    <div class="profile-selector">
+      <div class="profile-group">
+        <input type="radio" id="userProfile" name="profileType" value="user" data-action="change->profile#updateFormDisplay" checked>
+        <label for="userProfile">Profil Utilisateur</label>
+      </div>
+      <div class="profile-group">
+        <input type="radio" id="boxerProfile" name="profileType" value="boxer" data-action="change->profile#updateFormDisplay">
+        <label for="boxerProfile">Profil Boxer</label>
+      </div>
+    </div>
+    <form id="userForm" action="/update_profile" method="post" data-target="profile.form" data-profile-type="user">
+      <div class="form-field">
+        <label for="userEmail">Email:</label>
+        <input type="email" id="userEmail" name="userEmail" required>
+      </div>
+      <div class="form-field">
+        <label for="userPassword">Mot de passe:</label>
+        <input type="password" id="userPassword" name="userPassword" required>
+      </div>
+      <div class="form-field">
+        <label for="userFirstName">Prénom:</label>
+        <input type="text" id="userFirstName" name="userFirstName" required>
+      </div>
+      <div class="form-field">
+        <label for="userLastName">Nom:</label>
+        <input type="text" id="userLastName" name="userLastName" required>
+      </div>
+      <div class="form-field">
+        <label for="userAge">Age:</label>
+        <input type="number" id="userAge" name="userAge" required>
+      </div>
+      <input type="submit" value="Mettre à jour le profil utilisateur">
+    </form>
+    <form id="boxerForm" action="/update_boxer_profile" method="post" data-target="profile.form" data-profile-type="boxer">
+      <div class="form-field">
+        <label for="boxerFirstName">Prénom:</label>
+        <input type="text" id="boxerFirstName" name="boxerFirstName">
+      </div>
+      <div class="form-field">
+        <label for="boxerLastName">Nom:</label>
+        <input type="text" id="boxerLastName" name="boxerLastName">
+      </div>
+      <div class="form-field">
+        <label for="boxerAge">Age:</label>
+        <input type="number" id="boxerAge" name="boxerAge">
+      </div>
+      <div class="form-field">
+        <label for="boxerWeight">Poids:</label>
+        <input type="number" id="boxerWeight" name="boxerWeight">
+      </div>
+      <div class="form-field">
+        <label for="boxerHeight">Taille:</label>
+        <input type="number" id="boxerHeight" name="boxerHeight">
+      </div>
+      <div class="form-field">
+        <label for="boxerAddress">Adresse:</label>
+        <input type="text" id="boxerAddress" name="boxerAddress">
+      </div>
+      <div class="form-field">
+        <label for="boxerPrice">Prix par jour:</label>
+        <input type="number" id="boxerPrice" name="boxerPrice">
+      </div>
+      <div class="form-field">
+        <label for="boxerGender">Sexe:</label>
+        <input type="text" id="boxerGender" name="boxerGender">
+      </div>
+      <div class="form-field">
+        <label for="boxerRadius">Rayon de disponibilité:</label>
+        <input type="number" id="boxerRadius" name="boxerRadius">
+      </div>
+      <input type="submit" value="Mettre à jour le profil de boxeur">
+    </form>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
