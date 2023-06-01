@@ -60,7 +60,7 @@
   }
 
   &.validated {
-    color: greenyellow;
+    color: green;
   }
 
   &.refused {
@@ -70,4 +70,16 @@
   &.done {
     color: grey;
   }
+}
+
+#price {
+  text-align: center;
+}
+
+#date {
+  margin-top: 1rem;
+}
+
+.boxer-info p {
+  margin-bottom: 5px;
 }
