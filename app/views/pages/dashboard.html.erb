@@ -32,6 +32,8 @@
         <p>Awaiting response: <%= @status_pending %> </p>
         <p>Times you got wrecked: <%= @status_done %> </p>
       </div>
+      <%= link_to edit_profile_path, class: "edit-icon" do %>📝
+      <% end %>
     </div>
 
     <div class="bookings">
