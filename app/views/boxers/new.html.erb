@@ -1,17 +1,19 @@
-<h2 class="form-title">Become Our Next Challenger 💪</h2>
+<div class="form-box-center">
+  <h2 class="form-title">Become Our Next Challenger 💪</h2>
 
-<div class="form-cont-boxers">
-  <%= simple_form_for @boxer, html: { id: "my_form_id" } do |f| %>
-    <%= f.input :first_name, label: 'First Name' %>
-    <%= f.input :last_name, label: 'Last Name' %>
-    <%= f.input :age, label: 'Age' %>
-    <%= f.input :weight, label: 'Weight' %>
-    <%= f.input :height, label: 'Height' %>
-    <%= f.input :address, label: 'Address' %>
-    <%= f.input :price_per_day, label: 'Price per Day' %>
-    <%= f.input :gender, label: 'Gender' %>
-    <%= f.input :availability_radius, label: 'Availability Radius' %>
-    <%= f.input :photo, as: :file %>
-    <%= f.button :submit %>
-  <% end %>
+  <div class="form-cont-boxers">
+    <%= simple_form_for @boxer, html: { id: "my_form_id" } do |f| %>
+      <%= f.input :first_name, label: 'First Name' %>
+      <%= f.input :last_name, label: 'Last Name' %>
+      <%= f.input :age, label: 'Age' %>
+      <%= f.input :weight, label: 'Weight' %>
+      <%= f.input :height, label: 'Height' %>
+      <%= f.input :address, label: 'Address' %>
+      <%= f.input :price_per_day, label: 'Price per Day' %>
+      <%= f.input :gender, label: 'Gender' %>
+      <%= f.input :availability_radius, label: 'Availability Radius' %>
+      <%= f.input :photo, as: :file %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
 </div>

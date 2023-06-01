@@ -1,12 +1,14 @@
-.form-cont-boxers {
+.form-box-center {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Ceci assure que la div prend toute la hauteur de la fenêtre de visualisation */
+  // height: 100vh;
 }
 
-#my_form_id {
-  width: 50%;
+.form-cont-boxers {
+  width: 40%;
+  margin: 0 auto;
 }
 
 .form-title {
