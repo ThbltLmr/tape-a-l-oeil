@@ -1,39 +1,55 @@
-<div class="outer-container">
-  <div class="form-container-bd">
-    <div class="custom-container">
-      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= f.error_notification %>
-        <div class="w-50 mx-auto" class="form-signup">
-          <h2>Sign up</h2>
+<div class="form-container-bd">
+  <div class="custom-container">
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= f.error_notification %>
+      <div class="w-75 mx-auto">
+        <h2>Sign up</h2>
           <%= f.input :first_name,
-                      required: true,
-                      autofocus: true,
-                      input_html: { autocomplete: "first_name" }%>
-          <%= f.input :last_name,
-                      required: true,
-                      autofocus: true,
-                      input_html: { autocomplete: "last_name" }%>
-          <%= f.input :email,
-                      required: true,
-                      autofocus: true,
-                      input_html: { autocomplete: "email" }%>
-          <%= f.input :password,
-                      required: true,
-                      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                      input_html: { autocomplete: "new-password" } %>
-          <%= f.input :password_confirmation,
-                      required: true,
-                      input_html: { autocomplete: "new-password" } %>
-          <%= f.input :age,
-                      required: true,
-                      input_html: { autocomplete: "age" } %>
-          <%= f.input :photo, as: :file,
-                      required: false %>
-          <div class="form-actions">
-            <%= f.button :submit, "Sign up" %>
-          </div>
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "first_name" }
+                    %>
+        <%= f.input :last_name,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "last_name" }%>
+        <%= f.input :email,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "email" }%>
+        <%= f.input :password,
+                    required: true,
+                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                    input_html: { autocomplete: "new-password" } %>
+        <%= f.input :password_confirmation,
+                    required: true,
+                    input_html: { autocomplete: "new-password" } %>
+        <%= f.input :age,
+                    required: true,
+                    input_html: { autocomplete: "age" } %>
+        <%= f.input :photo, as: :file,
+                    required: false %>
+        <div class="form-actions">
+          <%= f.button :submit, "Sign up", class: "mx-auto" %>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
+    <div><img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle child-avatar1" style="width: 150px;"
+  alt="Avatar1" />
+    </div>
+    <div><img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle child-avatar2" style="width: 100px;"
+  alt="Avatar2" />
+    </div>
+    <div><img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle child-avatar3" style="width: 300px;"
+  alt="Avatar3" />
+    </div>
+        <div><img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle child-avatar4" style="width: 150px;"
+  alt="Avatar4" />
+    </div>
+        <div><img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle child-avatar5" style="width: 200px;"
+  alt="Avatar5" />
+    </div>
+
+
 </div>
