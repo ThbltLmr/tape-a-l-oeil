@@ -1,8 +1,12 @@
-<div class="container my-5" style="width: 50%;">
-  <%= simple_form_for([@boxer, @booking], url: boxer_bookings_path) do |f| %>
-    <%= f.input :address %>
-    <%= f.input :start_date, as: :date %>
-    <%= f.input :end_date, as: :date %>
-    <%= f.submit "Book", class: "btn-success" %>
-  <% end %>
+<div class="form-container-bd">
+  <div class="new_user w-75 p-5">
+    <%# <div class="container my-5" style="width: 50%;"> %>
+      <%= simple_form_for([@boxer, @booking], url: boxer_bookings_path) do |f| %>
+        <%= f.input :address %>
+        <%= f.input :start_date, as: :date %>
+        <%= f.input :end_date, as: :date %>
+        <%= f.submit "Book", class: "btn-success" %>
+      <% end %>
+    <%# </div> %>
+  </div>
 </div>
