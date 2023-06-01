@@ -1,10 +1,5 @@
 .form-container-bd {
-  display: flex;
-  align-items: center; /* This will center the form vertically */
-  justify-content: center; /* This will center the form horizontally */
-  flex-direction: column; /* This will stack the form items vertically */
-  height: 100vh; /* 100% of the viewport height */
-  width: 100vw; /* 100% of the viewport width */
+  height: 100vh;
   box-sizing: border-box;
   padding: 40px 10px 10px 10px;
   font-family: "Poppins", sans-serif;
@@ -12,17 +7,9 @@
   margin: 0;
 }
 
-.outer-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+.custom-controls {
   width: 100%;
-}
-
-
-.form-control {
-  width: 100%;
+  padding-left: 1rem;
 }
 
 input[type="submit"]{
@@ -42,6 +29,9 @@ input[type="submit"]{
 input[type="submit"]:hover{
   border-color: #2691d9;
   transition: .5s;
+}
+.btn {
+  margin: 1rem;
 }
 
 .signup_link{
@@ -74,9 +64,9 @@ h2 {
   margin-top: 0;
 }
 
-#new_user {
-  height: 740px;
-  width: 400px;
+.new_user {
+  height: fit-content ;
+  width: 35rem;
   background-color: rgba(255,255,255,0.13);
   position: absolute;
   transform: translate(-50%,-50%);
@@ -87,4 +77,5 @@ h2 {
   border: 2px solid rgba(255,255,255,0.1);
   box-shadow: 0 0 40px rgba(8,7,16,0.6);
   padding: 5px;
+  margin-top: 1rem;
 }
