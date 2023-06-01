@@ -49,7 +49,7 @@ User.all.each do |user|
   5.times do
     begin_date = Faker::Date.between(from: Date.today, to: 1.year.from_now)
     booking = Booking.new(
-      address: "#{Faker::Address.street_address}, Paris",
+      address: Faker::Travel::Airport.name(size: 'small', region: 'united_states'),
       start_date: begin_date,
       end_date: begin_date + 1.days,
       status: ["pending", "validated", "refused", "done"].sample

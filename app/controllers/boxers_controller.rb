@@ -2,6 +2,7 @@ class BoxersController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
   def index
     @boxers = Boxer.all
+    @boxer = Boxer.first
   end
 
   def new
