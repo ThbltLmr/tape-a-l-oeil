@@ -8,6 +8,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.address = session[:address]
     @booking.user = current_user
     @booking.boxer = Boxer.find(params[:boxer_id])
     @booking.price = ((@booking.end_date - @booking.start_date) * @booking.boxer.price_per_day).to_i
@@ -23,6 +24,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:address, :start_date, :end_date)
+    params.require(:booking).permit(:start_date, :end_date)
   end
 end

@@ -2,9 +2,6 @@
 <div class="dashboard" data-controller="switch">
 
   <ul class="list-inline tabs-underlined ">
-    <%# <li>
-      <p class="tab-underlined active"  data-action="click->switch#switchTab" data-switch-target="allActive">Profile</p>
-    </li> %>
     <li>
       <p class="tab-underlined active"  data-action="click->switch#switchTab" data-switch-target="allActive">Bookings</p>
     </li>
@@ -12,10 +9,6 @@
       <p class="tab-underlined"  data-action="click->switch#switchTab" data-switch-target="allActive">Gigs</p>
     </li>
   </ul>
-
-  <%# <div id="Profile" class="d-flex gap-4 mt-5" data-switch-target="profile allDNone">
-    <p>profile</p>
-  </div> %>
 
   <div id="Bookings" class="d-flex gap-4 mt-5" data-switch-target="bookings allDNone">
     <div class="card-dashboard stats">
@@ -36,14 +29,20 @@
         <p>Awaiting response: <%= @status_pending %> </p>
         <p>Times you got wrecked: <%= @status_done %> </p>
       </div>
-    </div>
+        <%= link_to edit_profile_path, class: "edit-icon" do %>📝
+        <% end %>
+      </div>
     <div class="bookings">
       <% @bookings.each do |booking| %>
         <div class="card-booking mb-3">
-          <%= image_tag "map.png", class: "image" %>
+          <div class="image"
+          data-controller="map"
+          data-map-markers-value="<%= [{ lat: booking.latitude, lng: booking.longitude, info_window_html: ApplicationController.new.render_to_string(partial: "pages/info_window", locals: {booking: booking}) }].to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">>
+          </div>
           <div class="card-booking-infos">
             <div>
-              <h2><%= booking.boxer.first_name %><%= booking.boxer.last_name %></h2>
+              <h2><%= booking.boxer.first_name %> <%= booking.boxer.last_name %></h2>
               <p><%= booking.start_date %></p>
               <p><%= booking.address %></p>
             </div>
@@ -57,7 +56,7 @@
             <% else %>
               <div class="status done"><%= booking.status%></div>
             <% end %>
-            <%= image_tag "MMA_1.png", class: "card-booking-user" %>
+            <%= cl_image_tag booking.boxer.photo.key, class: "card-booking-user" %>
           </div>
         </div>
       <% end %>
@@ -67,30 +66,45 @@
   <div id="Gigs" class="d-flex gap-4 mt-5 d-none" data-switch-target="gigs allDNone">
     <div class="card-dashboard stats">
       <div class="d-flex justify-content-between border-bottom">
-        <% if current_user.photo.attached? %>
-          <%= cl_image_tag(current_user.photo.key,
+        <% if current_user.boxer.photo.attached? %>
+          <%= cl_image_tag(current_user.boxer.photo.key,
             width: 120, height: 120, crop: :fill, class: "rounded-circle mb-5") %>
         <% else %>
           <%= image_tag('MMA_1.png', size: 120, class: "rounded-circle mb-5") %>
         <% end %>
         <div class="ms-5 mt-4">
-          <h3> <%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %> </h3>
-          <p><%= current_user.age %> years old</p>
+          <h3> <%= current_user.boxer.first_name.capitalize %> <%= current_user.boxer.last_name.capitalize %> </h3>
+          <p><%= current_user.boxer.age %> years old</p>
         </div>
       </div>
-      <div class="mt-5">
-        <p>Wreckings to give: <%= @status_validated %> </p>
-        <p>Awaiting your response: <%= @status_pending %> </p>
-        <p>Times you wrecked someone: <%= @status_done %> </p>
-      </div>
+       <div class="mt-5">
+    <p>Wreckings to give: <%= @status_validated %> </p>
+    <p>Awaiting your response: <%= @status_pending %> </p>
+    <p>Times you wrecked someone: <%= @status_done %> </p>
+
+          <% if current_user.boxer %>
+            <!-- Additional information from the boxers table -->
+            <p>Name: <%= current_user.boxer.first_name %> <%= current_user.boxer.last_name %></p>
+            <p>Age: <%= current_user.boxer.age %></p>
+            <p>Weight: <%= current_user.boxer.weight %> kg</p>
+            <p>Height: <%= current_user.boxer.height %> cm</p>
+            <p>Price per day: <%= current_user.boxer.price_per_day %></p>
+            <p>Gender: <%= current_user.boxer.gender %></p>
+            <p>Availability radius: <%= current_user.boxer.availability_radius %> km</p>
+          <% else %>
+            <p>No boxer information available.</p>
+          <% end %>
+        </div>
+      <%= link_to edit_profile_path, class: "edit-icon" do %>📝
+        <% end %>
     </div>
     <div class="bookings">
-      <% @bookings.each do |booking| %>
+      <% current_user.boxer.bookings.each do |booking| %>
         <div class="card-booking mb-3">
           <%= image_tag "map.png", class: "image" %>
           <div class="card-booking-infos">
             <div>
-              <h2><%= booking.boxer.first_name %><%= booking.boxer.last_name %></h2>
+              <h2><%= booking.user.first_name %> <%= booking.user.last_name %></h2>
               <p><%= booking.start_date %></p>
               <p><%= booking.address %></p>
             </div>
