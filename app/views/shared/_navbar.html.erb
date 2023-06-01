@@ -25,7 +25,7 @@
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <% if current_user.photo.attached? %>
-            <%= cl_image_tag(current_user.photo.key, width: 40, height: 40, crop: :thumb, class: "avatar", alt: "dropdown menu") %>
+            <%= cl_image_tag(current_user.photo.key, width: 40, height: 40, crop: :thumb, class: "avatar-bordered", alt: "dropdown menu") %>
           <% else %>
             <%= image_tag('MMA_1.png', size: 40, class: "avatar", alt: "dropdown menu") %>
           <% end %>
