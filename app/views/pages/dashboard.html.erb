@@ -35,31 +35,35 @@
       <div class="bookings">
         <% @bookings.each do |booking| %>
           <div class="card-booking mb-3">
-            <%= image_tag "map.png", class: "image" %>
+            <div class="image"
+            data-controller="map"
+            data-map-markers-value="<%= [{ lat: booking.latitude, lng: booking.longitude, info_window_html: ApplicationController.new.render_to_string(partial: "pages/info_window", locals: {booking: booking}) }].to_json %>"
+            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">>
+            </div>
             <div class="card-booking-infos">
               <div>
-                <h2><%= booking.boxer.first_name %><%= booking.boxer.last_name %></h2>
-                <p id="date"><%= booking.start_date %></p>
+                <h2><%= booking.boxer.first_name %> <%= booking.boxer.last_name %></h2>
+                <p><%= booking.start_date %></p>
                 <p><%= booking.address %></p>
+                </div>
+                <div>
+                  <h2 id="price"><%= booking.price%>€</h2>
+                  <%= link_to "Cancel", booking_path(booking), data: { turbo_method: :delete }, class: "btn btn-outline-danger" %>
+                </div>
+                <% if booking.status == "pending" %>
+                  <div class="status pending"><%= booking.status%></div>
+                <% elsif booking.status == "validated" %>
+                  <div class="status validated"><%= booking.status%></div>
+                <% elsif booking.status == "refused" %>
+                  <div class="status refused"><%= booking.status%></div>
+                <% else %>
+                  <div class="status done"><%= booking.status%></div>
+                <% end %>
+                <%= image_tag "MMA_1.png", class: "card-booking-user" %>
               </div>
-              <div>
-                <h2 id="price"><%= booking.price%>€</h2>
-                <%= link_to "Cancel", booking_path(booking), data: { turbo_method: :delete }, class: "btn btn-outline-danger" %>
-              </div>
-              <% if booking.status == "pending" %>
-                <div class="status pending"><%= booking.status%></div>
-              <% elsif booking.status == "validated" %>
-                <div class="status validated"><%= booking.status%></div>
-              <% elsif booking.status == "refused" %>
-                <div class="status refused"><%= booking.status%></div>
-              <% else %>
-                <div class="status done"><%= booking.status%></div>
-              <% end %>
-              <%= image_tag "MMA_1.png", class: "card-booking-user" %>
             </div>
-          </div>
         <% end %>
-    </div>
+      </div>
   </div>
 
   <% if current_user.boxer.nil? %>
@@ -100,7 +104,7 @@
         <% end %>
     </div>
     <div class="bookings">
-      <% @bookings.each do |booking| %>
+      <% current_user.boxer.bookings.each do |booking| %>
         <div class="card-booking mb-3">
           <%= image_tag "map.png", class: "image" %>
           <div class="card-booking-infos">
