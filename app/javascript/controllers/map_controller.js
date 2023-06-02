@@ -15,8 +15,12 @@ export default class extends Controller {
       style: "mapbox://styles/mapbox/streets-v10"
     })
 
+
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
+    this.map.once('load', function () {
+      this.map.resize();
+    })
   }
 
   #addMarkersToMap() {

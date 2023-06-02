@@ -59,7 +59,8 @@
                 <% else %>
                   <div class="status done"><%= booking.status%></div>
                 <% end %>
-                <%= image_tag "MMA_1.png", class: "card-booking-user" %>
+                <%= cl_image_tag(booking.boxer.photo.key,
+            width: 120, height: 120, crop: :fill, class: "card-booking-user") %>
               </div>
             </div>
         <% end %>
@@ -69,7 +70,7 @@
   <% if current_user.boxer.nil? %>
     <%= link_to "Click here to register as a boxer", new_boxer_path %>
   <% else %>
-  <div id="Gigs" class="d-flex gap-4 mt-5 d-none" data-switch-target="gigs allDNone">
+  <div id="Gigs" class="d-flex gap-4 mt-5 display-none" data-switch-target="gigs allDNone">
     <div class="card-dashboard stats">
       <div class="border-bottom">
         <div class="d-flex justify-content-between">
@@ -106,10 +107,14 @@
     <div class="bookings">
       <% current_user.boxer.bookings.each do |booking| %>
         <div class="card-booking mb-3">
-          <%= image_tag "map.png", class: "image" %>
+          <div class="image"
+            data-controller="map"
+            data-map-markers-value="<%= [{ lat: booking.latitude, lng: booking.longitude, info_window_html: ApplicationController.new.render_to_string(partial: "pages/info_window", locals: {booking: booking}) }].to_json %>"
+            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">>
+            </div>
           <div class="card-booking-infos">
             <div>
-              <h2><%= booking.boxer.first_name %><%= booking.boxer.last_name %></h2>
+              <h2><%= booking.user.first_name %><%= booking.user.last_name %></h2>
               <p><%= booking.start_date %></p>
               <p><%= booking.address %></p>
             </div>
@@ -123,7 +128,8 @@
             <% else %>
               <div class="status done"><%= booking.status%></div>
             <% end %>
-            <%= image_tag "MMA_1.png", class: "card-booking-user" %>
+            <%= cl_image_tag(booking.user.photo.key,
+            width: 120, height: 120, crop: :fill, class: "card-booking-user") %>
           </div>
         </div>
       <% end %>
