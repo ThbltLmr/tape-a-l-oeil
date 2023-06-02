@@ -70,7 +70,7 @@
   <% if current_user.boxer.nil? %>
     <%= link_to "Click here to register as a boxer", new_boxer_path %>
   <% else %>
-  <div id="Gigs" class="d-flex gap-4 mt-5 " data-switch-target="gigs allDNone">
+  <div id="Gigs" class="d-flex gap-4 mt-5 display-none" data-switch-target="gigs allDNone">
     <div class="card-dashboard stats">
       <div class="border-bottom">
         <div class="d-flex justify-content-between">
