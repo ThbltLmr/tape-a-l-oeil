@@ -6,6 +6,16 @@ Booking.destroy_all
 Boxer.destroy_all
 User.destroy_all
 
+ADDRESSES = [
+  "3 rue du Docteur Heulin, Paris",
+  "20 allée Darius Milhaud Paris",
+  "55 avenue Serge Dassault, Corbeil",
+  "Times Square, New York",
+  "Big Ben, London",
+  "Empire State Building, New York",
+  "Villa Gaudelet, Paris"
+]
+
 name = "Julien"
 family_name = "Fonteneau"
 user = User.new(
@@ -117,9 +127,9 @@ User.all.each do |user|
     age: user.age,
     weight: rand(50..120),
     height: rand(160..200),
-    address: Faker::Travel::Airport.name(size: 'small', region: 'united_states'),
+    address: ADDRESSES.sample,
     price_per_day: rand(100..150),
-    gender: ["male", "female", "other"].sample,
+    gender: ["male", "female"].sample,
     availability_radius: rand(1..50),
     user_id: user.id
   )
@@ -134,7 +144,7 @@ User.all.each do |user|
   5.times do
     begin_date = Faker::Date.between(from: Date.today, to: 1.year.from_now)
     booking = Booking.new(
-      address: Faker::Travel::Airport.name(size: 'small', region: 'united_states'),
+      address: ADDRESSES.sample,
       start_date: begin_date,
       end_date: begin_date + 1.days,
       status: ["pending", "validated", "refused", "done"].sample
