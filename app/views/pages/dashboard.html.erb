@@ -109,11 +109,17 @@
           <%= image_tag "map.png", class: "image" %>
           <div class="card-booking-infos">
             <div>
-              <h2><%= booking.boxer.first_name %><%= booking.boxer.last_name %></h2>
+              <h2><%= booking.user.first_name %> <%= booking.user.last_name %></h2>
               <p><%= booking.start_date %></p>
               <p><%= booking.address %></p>
             </div>
-            <h2><%= booking.price%>€</h2>
+            <div>
+              <h2><%= booking.price%>€</h2>
+              <div class="d-flex">
+                <%= link_to "Accept", accept_booking_path(booking), data: { turbo_method: :patch }, class: "btn btn-outline-success" %>
+                <%= link_to "Deny", deny_booking_path(booking), data: { turbo_method: :patch }, class: "btn btn-outline-danger" %>
+              </div>
+            </div>
             <% if booking.status == "pending" %>
               <div class="status pending"><%= booking.status%></div>
             <% elsif booking.status == "validated" %>
