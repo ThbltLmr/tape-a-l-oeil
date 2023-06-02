@@ -24,7 +24,7 @@
     <% boxers_row.each do |boxer| %>
       <div class="col-4 p-3">
       <%= link_to boxer_path(boxer), class: "text-decoration-none text-secondary", address: @address do %>
-        <div class="card-product thicker-card">
+        <div class="card-product thicker-card" id="c1">
           <%= cl_image_tag boxer.photo.key, height: 100, width: 100, crop: :fill %>
           <div class="card-product-infos">
             <h2><%= "#{boxer.first_name} #{boxer.last_name}" %></h2>
