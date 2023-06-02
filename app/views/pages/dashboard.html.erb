@@ -122,7 +122,7 @@
               <div>
                 <h2><%= booking.price%>€</h2>
                 <% if booking.status == "pending" %>
-                  <div class="d-flex" >
+                  <div class="d-flex rounded gap-2">
                     <p class="btn btn-outline-success" data-action="click->refresh#accept" data-refresh-target="btn">Accept</p>
                     <p class="btn btn-outline-danger" data-action="click->refresh#deny" data-refresh-target="btn">Deny</p>
                   </div>
