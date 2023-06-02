@@ -27,6 +27,19 @@ class BookingsController < ApplicationController
     redirect_to booking_path
   end
 
+  def accept
+    @booking = Booking.find(params[:id])
+    @booking.status = 'validated'
+    @booking.save
+  end
+
+
+  def deny
+    @booking = Booking.find(params[:id])
+    @booking.status = 'refused'
+    @booking.save
+  end
+
   private
 
   def booking_params
