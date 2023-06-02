@@ -11,41 +11,55 @@
   position : absolute;
   top: 6%;
   left: 31%;
+  background-size: cover;
+  background-position: center;
 }
 .child-avatar2{
   position : absolute;
   top: 85%;
   left: 32%;
+  background-size: cover;
+  background-position: center;
 }
 
 .child-avatar3{
   position : absolute;
   top: 50%;
   left: 58%;
+  background-size: cover;
+  background-position: center;
 }
 
 .child-avatar4{
   position : absolute;
   top: 10%;
   left: 80%;
-  
+  background-size: cover;
+  background-position: center;
 }
 
 .child-avatar5{
   position : absolute;
   top: 40%;
   left: 5%;
+  background-size: cover;
+  background-position: center;
 }
 
 .child-avatar6{
   position : absolute;
   top: 7%;
   left: 20%;
+  background-size: cover;
+  background-position: center;
 }
+
 .child-avatar7{
   position : absolute;
   top: 85%;
   left: 32%;
+  background-size: cover;
+  background-position: center;
 }
 
 .child-avatar8{
@@ -58,13 +72,17 @@
   position : absolute;
   top: 10%;
   left: 80%;
+  background-size: cover;
+  background-position: center;
 }
 
 .child-avatar10{
   position : absolute;
   top: 40%;
   left: 5%;
-}
+
+background-size: cover;
+  background-position: center;}
 
 .custom-controls {
   width: 100%;
@@ -144,8 +162,3 @@ input[type="submit"]:hover{
   backdrop-filter: blur(10px);
 
 }
-
-// .add-boxer-button {
-//   width: 100px;
-//   margin: 0 auto;
-// }
