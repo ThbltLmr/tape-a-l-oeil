@@ -19,7 +19,7 @@ export default class extends Controller {
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
     this.map.once('load', function () {
-      this.map.resize();
+      this.map.invalidateSize();
     })
   }
 
