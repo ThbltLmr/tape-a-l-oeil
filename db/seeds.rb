@@ -181,3 +181,23 @@ seed_boxer = Boxer.new(
 )
 seed_boxer.photo.attach(io: File.open('app/assets/images/brad.jpeg'), filename: 'brad.jpeg')
 seed_boxer.save!
+
+Booking.create(
+  user: User.first,
+  boxer: seed_boxer,
+  address: "Paris, France",
+  start_date: "2023-06-04",
+  end_date: "2023-06-05",
+  status: "pending",
+  price: 200_000
+)
+
+Booking.create(
+  user: User.second,
+  boxer: seed_boxer,
+  address: "Paris, France",
+  start_date: "2023-07-11",
+  end_date: "2023-07-12",
+  status: "pending",
+  price: 200_000
+)
