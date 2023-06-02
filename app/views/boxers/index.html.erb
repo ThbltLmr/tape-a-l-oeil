@@ -20,7 +20,7 @@
   <% end %>
 
   <div class="row">
-  <% @boxers.each_slice(3).with_index do |boxers_row, index| %>
+  <% @boxers.reject{ |boxer| boxer.user == current_user }.each_slice(3).with_index do |boxers_row, index| %>
     <% boxers_row.each do |boxer| %>
       <div class="col-4 p-3">
       <%= link_to boxer_path(boxer), class: "text-decoration-none text-secondary", address: @address do %>
