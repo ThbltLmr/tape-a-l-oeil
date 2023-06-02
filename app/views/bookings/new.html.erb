@@ -1,8 +1,10 @@
-<div class="container my-5" style="width: 50%;">
+<div class="form-container-bd">
+  <div class="new_user w-75 p-5">
   <h2>When do you want to get beat up by <%= @boxer.first_name.capitalize.strip %> at <%= session[:address] %>?</h2>
   <%= simple_form_for([@boxer, @booking], url: boxer_bookings_path) do |f| %>
     <%= f.input :start_date, as: :date %>
     <%= f.input :end_date, as: :date %>
     <%= f.submit "Book", class: "btn-success" %>
   <% end %>
+  </div>
 </div>

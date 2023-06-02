@@ -1,20 +1,41 @@
-<div class="form-container-bd">
-  <div class="new_user">
+<div class="form-container-bd -mt-5">
+  <div class="new_user w-50 p-4">
     <h2 class="form-title">Become Our Next Challenger 💪</h2>
     <div class="custom-controls w-75 mx-auto">
       <%= simple_form_for @boxer, html: { id: "my_form_id" } do |f| %>
-        <%= f.input :first_name, label: 'First Name' %>
-        <%= f.input :last_name, label: 'Last Name' %>
-        <%= f.input :age, label: 'Age' %>
-        <%= f.input :weight, label: 'Weight' %>
-        <%= f.input :height, label: 'Height' %>
-        <%= f.input :address, label: 'Address' %>
-        <%= f.input :price_per_day, label: 'Price per Day' %>
-        <%= f.input :gender, label: 'Gender' %>
-        <%= f.input :availability_radius, label: 'Availability Radius' %>
-        <%= f.input :photo, as: :file %>
-        <%= f.button :submit %>
+      <div class="d-flex w-100 gap-5">
+        <div class="w-50">
+          <%= f.input :first_name, label: 'First Name' %>
+          <%= f.input :last_name, label: 'Last Name' %>
+          <%= f.input :age, label: 'Age' %>
+          <%= f.input :weight, label: 'Weight' %>
+          <%= f.input :height, label: 'Height' %>
+        </div>
+        <div class="w-50">
+          <%= f.input :address, label: 'Address' %>
+          <%= f.input :price_per_day, label: 'Price per Day' %>
+          <%= f.input :gender, label: 'Gender' %>
+          <%= f.input :availability_radius, label: 'Availability Radius' %>
+          <%= f.input :photo, as: :file %>
+        </div>
+      </div>
+        <%= f.button :submit, class: "mx-auto" %>
       <% end %>
     </div>
+  </div>
+  <div>
+  <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle child-avatar6" style="width: 150px;" alt="Avatar6" />
+  </div>
+  <div>
+  <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle child-avatar7" style="width: 100px;" alt="Avatar7" />
+  </div>
+  <div>
+  <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle child-avatar8" style="width: 300px;" alt="Avatar8" />
+  </div>
+  <div>
+  <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle child-avatar9" style="width: 150px;" alt="Avatar9" />
+  </div>
+  <div>
+  <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle child-avatar10" style="width: 200px;" alt="Avatar10" />
   </div>
 </div>
