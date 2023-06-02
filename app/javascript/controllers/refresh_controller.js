@@ -14,6 +14,7 @@ export default class extends Controller {
       headers: { "Accept": "application/json" }
     })
     this.#erase()
+    this.#erase()
     this.#update("validated")
   }
 
@@ -22,6 +23,7 @@ export default class extends Controller {
       method: "GET", // Could be dynamic with Stimulus values
       headers: { "Accept": "application/json" }
     })
+    this.#erase()
     this.#erase()
     this.#update("refused")
   }
