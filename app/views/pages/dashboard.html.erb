@@ -70,7 +70,7 @@
   <% if current_user.boxer.nil? %>
     <%= link_to "Click here to register as a boxer", new_boxer_path %>
   <% else %>
-  <div id="Gigs" class="d-flex gap-4 mt-5 d-none" data-switch-target="gigs allDNone">
+  <div id="Gigs" class="d-flex gap-4 mt-5 " data-switch-target="gigs allDNone">
     <div class="card-dashboard stats">
       <div class="border-bottom">
         <div class="d-flex justify-content-between">
@@ -107,7 +107,11 @@
     <div class="bookings">
       <% current_user.boxer.bookings.each do |booking| %>
         <div class="card-booking mb-3">
-          <%= image_tag "map.png", class: "image" %>
+          <div class="image"
+            data-controller="map"
+            data-map-markers-value="<%= [{ lat: booking.latitude, lng: booking.longitude, info_window_html: ApplicationController.new.render_to_string(partial: "pages/info_window", locals: {booking: booking}) }].to_json %>"
+            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">>
+            </div>
           <div class="card-booking-infos">
             <div>
               <h2><%= booking.user.first_name %><%= booking.user.last_name %></h2>
