@@ -17,3 +17,8 @@
   padding: 10px !important;
   vertical-align: middle !important;
 }
+
+.mapboxgl-canvas-container{
+  min-width: 1000px !important;
+  overflow: hidden;
+}

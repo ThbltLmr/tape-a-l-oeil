@@ -1,4 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
+import mapboxgl from 'mapbox-gl' // Don't forget this!
 
 // Connects to data-controller="switch"
 export default class extends Controller {
@@ -27,5 +28,10 @@ static targets = ["profile", "bookings", "gigs", "allActive", "allDNone", "allTa
         html.classList.remove("display-none")
       }
     })
+
+    // const maps = document.querySelectorAll(".mapboxgl-canvas")
+    // maps.forEach((map) => {
+    //   map.invalidateSize();
+    // })
   }
 }
