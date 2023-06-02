@@ -4,9 +4,6 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
 static targets = ["profile", "bookings", "gigs", "allActive", "allDNone", "allTabs"]
 
-  connect() {
-    console.log('hello');
-  }
 
   switchTab(event) {
     // console.log(this.allActiveTargets);

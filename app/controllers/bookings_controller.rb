@@ -30,22 +30,14 @@ class BookingsController < ApplicationController
   def accept
     @booking = Booking.find(params[:id])
     @booking.status = 'validated'
-    if @booking.save
-      redirect_to dashboard_path
-    else
-      render :new, status: :unprocessable_entity
-    end
+    @booking.save
   end
 
 
   def deny
     @booking = Booking.find(params[:id])
     @booking.status = 'refused'
-    if @booking.save
-      redirect_to dashboard_path
-    else
-      render :new, status: :unprocessable_entity
-    end
+    @booking.save
   end
 
   private

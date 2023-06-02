@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'pages#dashboard'
   get '/edit_profile', to: 'pages#edit_profile'
 
-  patch '/accept_booking/:id', to: 'bookings#accept', as: 'accept_booking'
-  patch '/deny_booking/:id', to: 'bookings#deny', as: 'deny_booking'
+  get '/accept_booking/:id', to: 'bookings#accept', as: 'accept_booking'
+  get '/deny_booking/:id', to: 'bookings#deny', as: 'deny_booking'
 end
