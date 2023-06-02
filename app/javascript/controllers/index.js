@@ -6,9 +6,6 @@ import { application } from "controllers/application"
 import { eagerLoadControllersFrom } from "@hotwired/stimulus-loading"
 eagerLoadControllersFrom("controllers", application)
 
-// Lazy load controllers as they appear in the DOM (remember not to preload controllers in import map!)
+// Lazy load controllers a  s they appear in the DOM (remember not to preload controllers in import map!)
 // import { lazyLoadControllersFrom } from "@hotwired/stimulus-loading"
 // lazyLoadControllersFrom("controllers", application)
-
-import SwitchController from "./switch_controller.js"
-Stimulus.register("switch", SwitchController)

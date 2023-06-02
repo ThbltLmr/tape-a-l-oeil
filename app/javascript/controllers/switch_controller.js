@@ -21,10 +21,10 @@ static targets = ["profile", "bookings", "gigs", "allActive", "allDNone", "allTa
     const htmls = this.allDNoneTargets
     htmls.forEach((html) => {
       console.log(html.id);
-      html.classList.add("d-none");
+      html.classList.add("display-none");
       console.log()
       if (html.id === event.currentTarget.innerHTML) {
-        html.classList.remove("d-none")
+        html.classList.remove("display-none")
       }
     })
   }
