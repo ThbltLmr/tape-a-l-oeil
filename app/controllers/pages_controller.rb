@@ -11,4 +11,8 @@ class PagesController < ApplicationController
     @status_pending_boxer = Booking.where(boxer: current_user.boxer, status: "pending").count
     @status_validated_boxer = Booking.where(boxer: current_user.boxer, status: "validated").count
   end
+
+  def chaewon
+    @no_navbar = true
+  end
 end

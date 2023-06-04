@@ -10,10 +10,10 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    boxers_path(current_user)
+    current_user.first_name.strip.capitalize == "Chaewon" ? chaewon_path : boxers_path(current_user)
   end
 
   def after_sign_up_path_for(resource)
-    boxers_path(current_user)
+    current_user.first_name.strip.capitalize == "Chaewon" ? chaewon_path : boxers_path(current_user)
   end
 end
